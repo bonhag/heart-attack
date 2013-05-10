@@ -1,0 +1,9 @@
+/* CSS declarations go here */
+img {
+  height: 720px;
+  width: 1080px;
+  position: absolute;
+  opacity: 0.5;
+  top: 20px;
+  left: 20px;
+}
