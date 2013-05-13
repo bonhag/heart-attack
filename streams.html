@@ -3,13 +3,22 @@
 </head>
 
 <body>
-  {{> hello}}
+  {{> stream_list}}
 </body>
 
-<template name="hello">
-  <h1>Hello World!</h1>
-  {{greeting}}
-  <input type="button" value="Click" />
-  <img src="1.jpg"/>
-  <img src="2.jpg"/>
+<template name="stream_list">
+  <h1>ut</h1>
+  {{#each streams}}
+  <ul>
+    {{> stream_info}}
+  </ul>
+  {{else}}
+    <p>go go go</p>
+  {{/each}}
+</template>
+
+<template name="stream_info">
+  <li>
+    {{name}}: {{data}}
+  </li>
 </template>

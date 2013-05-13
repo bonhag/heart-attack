@@ -1,21 +1,19 @@
 Streams = new Meteor.Collection("streams");
 
 if (Meteor.isClient) {
-  Template.hello.greeting = function () {
-    return "Welcome to streams.";
+  Template.stream_list.streams = function () {
+    return Streams.find({});
   };
-
-  Template.hello.events({
-    'click input' : function () {
-      // template data, if any, is available in 'this'
-      if (typeof console !== 'undefined')
-        console.log("You pressed the button");
-    }
-  });
 }
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
     // code to run on server at startup
+    Meteor.methods({
+      insertStream: function(name, data) {
+        Streams.insert({name: name, data: data});
+        return "thx!";
+      }
+    });
   });
 }
